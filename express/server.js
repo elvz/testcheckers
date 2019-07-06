@@ -10,10 +10,10 @@ const router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/.netlify/functions/server.png', router);  // path must route to lambda
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 app.use('/static', express.static(__dirname + '/images'));
 
-app.post('/upload/image',  async (req, res, next) => {
+app.post('/upload',  async (req, res, next) => {
   try {
       const path = './images/'+'board'+'.png'
       const imgdata = req.body.base64image;

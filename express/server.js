@@ -15,7 +15,7 @@ app.use('/static', express.static(__dirname + '/images'));
 
 app.post('/upload',  async (req, res, next) => {
   try {
-      const path = './images/'+'board'+'.png'
+      const path = './images/'++ new Date() ++'.png'
       const imgdata = req.body.base64image;
       const base64Data = imgdata.replace(/^data:([A-Za-z-+/]+);base64,/, '');
       fs.writeFileSync(path, base64Data,  {encoding: 'base64'});
